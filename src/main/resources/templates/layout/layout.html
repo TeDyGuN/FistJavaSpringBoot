@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title th:text="'Spring Boot' + ${titulo}">Title</title>
+    <link rel="stylesheet" th:href="@{/css/boostrap.min.css}">
+
+</head>
+<body>
+    <header th:fragment="header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a href="#" class="navbar-brand">Spring Boot</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a th:href="@{/listar}" class="nav-link">Clientes</a></li>
+                    <li class="nav-item"><a th:href="@{/h2-console}" class="nav-link">Consola</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+        <div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+        <div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
+        <div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
+    </header>
+
+    <div class="container mt-5">
+
+    </div>
+    <footer th:fragment="footer" class="container">
+        <p>
+            Powererd By <a href="http://spring.io/projects/spring-boot">Spring Boot</a> y
+            <a href="https://www.thymeleaf.org/">Thymeleaf</a>
+        </p>
+    </footer>
+</body>
+</html>
