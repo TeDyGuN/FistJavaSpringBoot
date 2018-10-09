@@ -1,6 +1,6 @@
 package bo.com.docout.demojpa;
 
-import bo.com.docout.demojpa.modes.entity.dao.service.IUploadFileService;
+import bo.com.docout.demojpa.models.service.IUploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

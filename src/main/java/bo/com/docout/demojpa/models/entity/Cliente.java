@@ -1,4 +1,4 @@
-package bo.com.docout.demojpa.modes.entity;
+package bo.com.docout.demojpa.models.entity;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -8,40 +8,43 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="clientes")
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    // Llave Primaria
     @Id
-    //Incrementar
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotEmpty
     private String nombre;
+
     @NotEmpty
     private String apellido;
+
     @NotEmpty
     @Email
     private String email;
 
     @NotNull
-    // Columna de otro nombre
     @Column(name = "created_at")
-    // Tipo Dato
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
 
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Factura> facturas;
+
     public String foto;
 
-//    @PrePersist
-//    public void prePersist() {
-//        this.createdAt = new Date();
-//    }
+    public Cliente() {
+        facturas = new ArrayList<Factura>();
+    }
 
     public Long getId() {
         return id;
@@ -89,5 +92,22 @@ public class Cliente implements Serializable {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public List<Factura> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(List<Factura> facturas) {
+        this.facturas = facturas;
+    }
+
+    public void addFactura(Factura factura) {
+        facturas.add(factura);
+    }
+
+    @Override
+    public String toString() {
+        return nombre + ' ' + apellido ;
     }
 }

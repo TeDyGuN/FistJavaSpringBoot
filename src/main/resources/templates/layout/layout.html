@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title th:text="'Spring Boot' + ${titulo}">Title</title>
     <link rel="stylesheet" th:href="@{/css/boostrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}">
 
 </head>
 <body>
@@ -35,6 +36,8 @@
             Powererd By <a href="http://spring.io/projects/spring-boot">Spring Boot</a> y
             <a href="https://www.thymeleaf.org/">Thymeleaf</a>
         </p>
+        <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+        <script th:src="@{/js/jquery-ui.min.js}"></script>
     </footer>
 </body>
 </html>

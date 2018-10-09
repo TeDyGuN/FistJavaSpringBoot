@@ -1,8 +1,8 @@
 package bo.com.docout.demojpa.controllers;
 
-import bo.com.docout.demojpa.modes.entity.Cliente;
-import bo.com.docout.demojpa.modes.entity.dao.service.IClienteService;
-import bo.com.docout.demojpa.modes.entity.dao.service.IUploadFileService;
+import bo.com.docout.demojpa.models.entity.Cliente;
+import bo.com.docout.demojpa.models.service.IClienteService;
+import bo.com.docout.demojpa.models.service.IUploadFileService;
 import bo.com.docout.demojpa.paginator.PageRender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

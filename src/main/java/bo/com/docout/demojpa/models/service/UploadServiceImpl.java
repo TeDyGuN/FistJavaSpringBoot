@@ -1,4 +1,4 @@
-package bo.com.docout.demojpa.modes.entity.dao.service;
+package bo.com.docout.demojpa.models.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
